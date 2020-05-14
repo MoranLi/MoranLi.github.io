@@ -5,16 +5,19 @@
   
 
   
-  <title>Archives: 2020 | Yukun Li`s Note</title>
+  <title>S3 | Yukun Li`s Note</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="Yukun Li&#96;s personal Blog">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Yukun Li&#96;s Note">
-<meta property="og:url" content="http://moranli.github.io/archives/2020/index.html">
+  <meta name="description" content="S3 object-oriented storage files 0 - 5TB ulimit storage file are store in bucket   S3 is a univerisal namspace, all url to s3 busket mush be unique Object in S3 key (name of file) value (content of fi">
+<meta property="og:type" content="article">
+<meta property="og:title" content="S3">
+<meta property="og:url" content="http://moranli.github.io/2020/05/13/S3/index.html">
 <meta property="og:site_name" content="Yukun Li&#96;s Note">
-<meta property="og:description" content="Yukun Li&#96;s personal Blog">
+<meta property="og:description" content="S3 object-oriented storage files 0 - 5TB ulimit storage file are store in bucket   S3 is a univerisal namspace, all url to s3 busket mush be unique Object in S3 key (name of file) value (content of fi">
 <meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2020-05-14T04:47:08.000Z">
+<meta property="article:modified_time" content="2020-05-14T04:47:25.560Z">
 <meta property="article:author" content="Yukun Li">
+<meta property="article:tag" content="AWS">
 <meta name="twitter:card" content="summary">
   
     <link rel="alternate" href="/atom.xml" title="Yukun Li`s Note" type="application/atom+xml">
@@ -64,59 +67,113 @@
   </div>
 </header>
       <div class="outer">
-        <section id="main">
-  
-  
-    
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2020" class="archive-year">2020</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2020/05/13/S3/" class="archive-article-date">
-  <time datetime="2020-05-14T04:47:08.000Z" itemprop="datePublished">May 13</time>
+        <section id="main"><article id="post-S3" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2020/05/13/S3/" class="article-date">
+  <time datetime="2020-05-14T04:47:08.000Z" itemprop="datePublished">2020-05-13</time>
 </a>
-      
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/05/13/S3/">S3</a>
+    <h1 class="article-title" itemprop="name">
+      S3
     </h1>
   
 
-    </header>
-  </div>
-</article>
-  
+      </header>
     
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2020/05/13/Overview-and-IAM/" class="archive-article-date">
-  <time datetime="2020-05-14T04:37:55.000Z" itemprop="datePublished">May 13</time>
-</a>
+    <div class="article-entry" itemprop="articleBody">
       
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/05/13/Overview-and-IAM/">Overview and IAM</a>
-    </h1>
-  
+        <h1 id="S3"><a href="#S3" class="headerlink" title="S3"></a>S3</h1><ul>
+<li>object-oriented storage<ul>
+<li>files 0 - 5TB</li>
+<li>ulimit storage</li>
+<li>file are store in bucket</li>
+</ul>
+</li>
+<li>S3 is a univerisal namspace, all url to s3 busket mush be unique</li>
+<li>Object in S3<ul>
+<li>key (name of file)</li>
+<li>value (content of file)</li>
+<li>version ID</li>
+<li>metadata</li>
+<li>subresources<ul>
+<li>access control lists</li>
+<li>torrents</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>data consistincy<ul>
+<li>read after write</li>
+<li>eventual consistency for overide delete &amp; write</li>
+<li>can use MFA delete to product delete</li>
+</ul>
+</li>
+<li>S3 guarantees:<ul>
+<li>99.9% availability</li>
+<li>99.999999999% durability</li>
+</ul>
+</li>
+<li>Storage Class (expensive -&gt; cheap)<ul>
+<li>standard</li>
+<li>Intelligent Tiering<ul>
+<li>automaticly move data between tire to minimum cost without influence performace</li>
+</ul>
+</li>
+<li>IA - infrequently accessed</li>
+<li>One Zone IA<ul>
+<li>IA without data consistency across differenct availability zone</li>
+</ul>
+</li>
+<li>Glacier<ul>
+<li>can store any amount of data</li>
+<li>used on archieved data</li>
+<li>require minutes to hours to retrival data<ul>
+<li>Glacier Deep Archive</li>
+<li>lowest cost</li>
+<li>about 12 hour retrival time</li>
+<li>cross-region replication</li>
+<li>replicate data from one region to another</li>
+<li>transfer acceleration</li>
+<li>user transfer file to edge location and take advantage of using network between S3 data center location and edge location</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
 
-    </header>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://moranli.github.io/2020/05/13/S3/" data-id="cka6al3gc00004cvd7dz098t1" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/AWS/" rel="tag">AWS</a></li></ul>
+
+    </footer>
   </div>
-</article>
+  
+    
+<nav id="article-nav">
   
   
-    </div></section>
+    <a href="/2020/05/13/Overview-and-IAM/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">Overview and IAM</div>
+    </a>
   
+</nav>
 
+  
+</article>
 
 </section>
         

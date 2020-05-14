@@ -66,6 +66,104 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-S3" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2020/05/13/S3/" class="article-date">
+  <time datetime="2020-05-14T04:47:08.000Z" itemprop="datePublished">2020-05-13</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/05/13/S3/">S3</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="S3"><a href="#S3" class="headerlink" title="S3"></a>S3</h1><ul>
+<li>object-oriented storage<ul>
+<li>files 0 - 5TB</li>
+<li>ulimit storage</li>
+<li>file are store in bucket</li>
+</ul>
+</li>
+<li>S3 is a univerisal namspace, all url to s3 busket mush be unique</li>
+<li>Object in S3<ul>
+<li>key (name of file)</li>
+<li>value (content of file)</li>
+<li>version ID</li>
+<li>metadata</li>
+<li>subresources<ul>
+<li>access control lists</li>
+<li>torrents</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>data consistincy<ul>
+<li>read after write</li>
+<li>eventual consistency for overide delete &amp; write</li>
+<li>can use MFA delete to product delete</li>
+</ul>
+</li>
+<li>S3 guarantees:<ul>
+<li>99.9% availability</li>
+<li>99.999999999% durability</li>
+</ul>
+</li>
+<li>Storage Class (expensive -&gt; cheap)<ul>
+<li>standard</li>
+<li>Intelligent Tiering<ul>
+<li>automaticly move data between tire to minimum cost without influence performace</li>
+</ul>
+</li>
+<li>IA - infrequently accessed</li>
+<li>One Zone IA<ul>
+<li>IA without data consistency across differenct availability zone</li>
+</ul>
+</li>
+<li>Glacier<ul>
+<li>can store any amount of data</li>
+<li>used on archieved data</li>
+<li>require minutes to hours to retrival data<ul>
+<li>Glacier Deep Archive</li>
+<li>lowest cost</li>
+<li>about 12 hour retrival time</li>
+<li>cross-region replication</li>
+<li>replicate data from one region to another</li>
+<li>transfer acceleration</li>
+<li>user transfer file to edge location and take advantage of using network between S3 data center location and edge location</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://moranli.github.io/2020/05/13/S3/" data-id="cka6al3gc00004cvd7dz098t1" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/AWS/" rel="tag">AWS</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
     <article id="post-Overview-and-IAM" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2020/05/13/Overview-and-IAM/" class="article-date">
@@ -98,9 +196,11 @@
 </ul>
 </li>
 <li>edge location<ul>
-<li>end point used to caching AWS content<h1 id="IAM"><a href="#IAM" class="headerlink" title="IAM"></a>IAM</h1></li>
+<li>end point used to caching AWS content</li>
 </ul>
 </li>
+</ul>
+<h1 id="IAM"><a href="#IAM" class="headerlink" title="IAM"></a>IAM</h1><ul>
 <li>IAM is universial, you are create a user globally</li>
 <li>root account is the account first setup AWS account, it have full admin access</li>
 <li>new user have no permission when first created</li>
@@ -114,7 +214,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://moranli.github.io/2020/05/13/Overview-and-IAM/" data-id="cka6aiw1z0000povdcj689gd3" class="article-share-link">Share</a>
+      <a data-url="http://moranli.github.io/2020/05/13/Overview-and-IAM/" data-id="cka6al3gj00014cvd3m1kf9ke" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/AWS/" rel="tag">AWS</a></li></ul>
@@ -169,6 +269,10 @@
     <h3 class="widget-title">Recent Posts</h3>
     <div class="widget">
       <ul>
+        
+          <li>
+            <a href="/2020/05/13/S3/">S3</a>
+          </li>
         
           <li>
             <a href="/2020/05/13/Overview-and-IAM/">Overview and IAM</a>
