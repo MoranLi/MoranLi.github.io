@@ -7,15 +7,15 @@
   
   <title>S3 | Yukun Li`s Note</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="S3 object-oriented storage files 0 - 5TB ulimit storage file are store in bucket   S3 is a univerisal namspace, all url to s3 busket mush be unique Object in S3 key (name of file) value (content of fi">
+  <meta name="description" content="S3 object-oriented storage files 0 - 5TB ulimit storage file are store in bucket S3 is a univerisal namspace, all url to s3 busket mush be unique Object in S3   key (name of file) value (content of fi">
 <meta property="og:type" content="article">
 <meta property="og:title" content="S3">
 <meta property="og:url" content="http://moranli.github.io/2020/05/13/S3/index.html">
 <meta property="og:site_name" content="Yukun Li&#96;s Note">
-<meta property="og:description" content="S3 object-oriented storage files 0 - 5TB ulimit storage file are store in bucket   S3 is a univerisal namspace, all url to s3 busket mush be unique Object in S3 key (name of file) value (content of fi">
+<meta property="og:description" content="S3 object-oriented storage files 0 - 5TB ulimit storage file are store in bucket S3 is a univerisal namspace, all url to s3 busket mush be unique Object in S3   key (name of file) value (content of fi">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2020-05-14T04:47:08.000Z">
-<meta property="article:modified_time" content="2020-05-14T19:25:18.960Z">
+<meta property="article:modified_time" content="2020-05-23T16:51:45.559Z">
 <meta property="article:author" content="Yukun Li">
 <meta property="article:tag" content="AWS">
 <meta name="twitter:card" content="summary">
@@ -93,34 +93,34 @@
 <li>object-oriented storage<ul>
 <li>files 0 - 5TB</li>
 <li>ulimit storage</li>
-<li>file are store in bucket</li>
+<li>file are store in bucket<ul>
+<li>S3 is a univerisal namspace, all url to s3 busket mush be unique</li>
+<li>Object in S3</li>
 </ul>
 </li>
-<li>S3 is a univerisal namspace, all url to s3 busket mush be unique</li>
-<li>Object in S3<ul>
 <li>key (name of file)</li>
 <li>value (content of file)</li>
 <li>version ID</li>
 <li>metadata</li>
 <li>subresources<ul>
 <li>access control lists</li>
-<li>torrents</li>
+<li>torrents<ul>
+<li>data consistincy</li>
 </ul>
 </li>
 </ul>
 </li>
-<li>data consistincy<ul>
 <li>read after write</li>
 <li>eventual consistency for overide delete &amp; write</li>
-<li>can use MFA delete to product delete</li>
+<li>can use MFA delete to product delete<ul>
+<li>S3 guarantees:</li>
 </ul>
 </li>
-<li>S3 guarantees:<ul>
 <li>99.9% availability</li>
-<li>99.999999999% durability</li>
+<li>99.999999999% durability<ul>
+<li>Storage Class (expensive -&gt; cheap)</li>
 </ul>
 </li>
-<li>Storage Class (expensive -&gt; cheap)<ul>
 <li>standard</li>
 <li>Intelligent Tiering<ul>
 <li>automaticly move data between tire to minimum cost without influence performace</li>
@@ -138,44 +138,24 @@
 <li>Glacier Deep Archive</li>
 <li>lowest cost</li>
 <li>about 12 hour retrival time</li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-</li>
-<li>cross-region replication<ul>
+<li>cross-region replication</li>
 <li>replicate data from one region to another</li>
-</ul>
-</li>
-<li>transfer acceleration<ul>
+<li>transfer acceleration</li>
 <li>user transfer file to edge location and take advantage of using network between S3 data center location and edge location</li>
-</ul>
-</li>
-<li>security<ul>
-<li>set access with<ul>
+<li>security</li>
+<li>set access with</li>
 <li>bucket policy</li>
 <li>access control list</li>
-</ul>
-</li>
 <li>can log request </li>
-</ul>
-</li>
-<li>encryption<ul>
-<li>During transmission<ul>
+<li>encryption</li>
+<li>During transmission</li>
 <li>SSL/TLS</li>
-</ul>
-</li>
-<li>server side<ul>
+<li>server side</li>
 <li>SSE-S3 sever side encryption S3</li>
 <li>SSE-KMS Key management service</li>
 <li>SSE-C sever side encryption with consumer provided keys</li>
-</ul>
-</li>
 <li>client side encryption</li>
-</ul>
-</li>
-<li>versioning<ul>
+<li>versioning</li>
 <li>can not be disabled once enabled</li>
 <li>store all version even delete (label with deleted)</li>
 <li>intergated with lifecycle rules</li>
@@ -183,18 +163,42 @@
 <li>MFA deletion capacity, provide additional layer of security</li>
 </ul>
 </li>
-</ul>
-</li>
-<li>lifecycle<ul>
+<li>lifecycle</li>
 <li>automate move object to different layers</li>
 <li>can use conjunction with verisoning</li>
 <li>can apply to current / past versioning</li>
-</ul>
-</li>
-<li>share bucket between account<ul>
+<li>share bucket between  account</li>
 <li>use bucket policy &amp; IAM(apply to entire bucket), programmatic only</li>
 <li>use bucket ACL &amp; IAM(individual objects), programmatic only</li>
 <li>cross-account IAM roles, console &amp; programmetic</li>
+<li>cloudfront</li>
+<li>deliver your content to nearest edge location for user for best possible performance</li>
+<li>origin: origin of all the file CDN will distribute (S3, EC2, load balancer, Route 53)</li>
+<li>distribution: nmae of edge location give to CDN for distribute</li>
+<li>object are cached for the life of  TTL(time to live)</li>
+<li>clear cached is charged</li>
+<li>Web distribution</li>
+<li>RTMP (media streaming)</li>
+<li>snowball</li>
+<li>PB level data transport solution using physical secure large disk</li>
+<li>import / export to S3</li>
+<li>storage gateway</li>
+<li>File gateway</li>
+<li>NFS, store directly on S3</li>
+<li>volume gateway</li>
+<li>stored volume<ul>
+<li>entire dataset store on site and asycgriniusky backup to S3</li>
+</ul>
+</li>
+<li>cached volume<ul>
+<li>entire dataset store on S3 and most frequenctly accessed cached on site</li>
+</ul>
+</li>
+<li>gateway virtual library</li>
+</ul>
+</li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>
@@ -202,7 +206,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://moranli.github.io/2020/05/13/S3/" data-id="cka76i1xb0001bgvdgxzo8jrw" class="article-share-link">Share</a>
+      <a data-url="http://moranli.github.io/2020/05/13/S3/" data-id="ckajvetq90000yovdckpu8lxu" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/AWS/" rel="tag">AWS</a></li></ul>
