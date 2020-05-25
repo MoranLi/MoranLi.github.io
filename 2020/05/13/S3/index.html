@@ -7,15 +7,15 @@
   
   <title>S3 | Yukun Li`s Note</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="S3 object-oriented storage files 0 - 5TB ulimit storage file are store in bucket S3 is a univerisal namspace, all url to s3 busket mush be unique Object in S3   key (name of file) value (content of fi">
+  <meta name="description" content="S3 object-oriented storage files 0 - 5TB ulimit storage file are store in bucket bucket are private when created S3 is a univerisal namspace, all url to s3 busket mush be unique Object in S3   key (na">
 <meta property="og:type" content="article">
 <meta property="og:title" content="S3">
 <meta property="og:url" content="http://moranli.github.io/2020/05/13/S3/index.html">
 <meta property="og:site_name" content="Yukun Li&#96;s Note">
-<meta property="og:description" content="S3 object-oriented storage files 0 - 5TB ulimit storage file are store in bucket S3 is a univerisal namspace, all url to s3 busket mush be unique Object in S3   key (name of file) value (content of fi">
+<meta property="og:description" content="S3 object-oriented storage files 0 - 5TB ulimit storage file are store in bucket bucket are private when created S3 is a univerisal namspace, all url to s3 busket mush be unique Object in S3   key (na">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2020-05-14T04:47:08.000Z">
-<meta property="article:modified_time" content="2020-05-23T16:51:45.559Z">
+<meta property="article:modified_time" content="2020-05-25T00:14:45.924Z">
 <meta property="article:author" content="Yukun Li">
 <meta property="article:tag" content="AWS">
 <meta name="twitter:card" content="summary">
@@ -93,7 +93,8 @@
 <li>object-oriented storage<ul>
 <li>files 0 - 5TB</li>
 <li>ulimit storage</li>
-<li>file are store in bucket<ul>
+<li>file are store in bucket</li>
+<li>bucket are private when created<ul>
 <li>S3 is a univerisal namspace, all url to s3 busket mush be unique</li>
 <li>Object in S3</li>
 </ul>
@@ -140,6 +141,9 @@
 <li>about 12 hour retrival time</li>
 <li>cross-region replication</li>
 <li>replicate data from one region to another</li>
+<li>file in exist bucket would not replicate automatically</li>
+<li>all update after will update automatic</li>
+<li>delete / delete of indidval version would not replicate</li>
 <li>transfer acceleration</li>
 <li>user transfer file to edge location and take advantage of using network between S3 data center location and edge location</li>
 <li>security</li>
@@ -195,6 +199,17 @@
 </ul>
 </li>
 <li>gateway virtual library</li>
+<li>use for backup </li>
+<li>Athene</li>
+<li>Interactive query service</li>
+<li>allow you to query data located in S3 using standard SQL</li>
+<li>serverless</li>
+<li>commonly used to analyse log data in S3</li>
+<li>Macie</li>
+<li>security service use AI to discover, classify and protect data in S3 and help identify PII(Personal identifiable information)</li>
+<li>also use to analyze cloud trail logs for suspicious API activity</li>
+<li>include dashboard, report and alerting</li>
+<li>great for PCI-DSS compliance and preventing ID theft</li>
 </ul>
 </li>
 </ul>
@@ -206,7 +221,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://moranli.github.io/2020/05/13/S3/" data-id="ckajvetq90000yovdckpu8lxu" class="article-share-link">Share</a>
+      <a data-url="http://moranli.github.io/2020/05/13/S3/" data-id="ckamr765i00037ovdbm50fxkh" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/AWS/" rel="tag">AWS</a></li></ul>
