@@ -14,11 +14,13 @@
 <meta property="og:site_name" content="Yukun Li&#96;s Note">
 <meta property="og:description" content="EC2 virtal machine provide resizable compute capicity, reduce time to deploy new server instance will be charged for a partical hour of usage Pricing Type on demand fix rate &#x2F; time   reserved provide">
 <meta property="og:locale" content="en_US">
+<meta property="og:image" content="http://moranli.github.io/2020/05/25/ec2/images/EBS.png">
 <meta property="article:published_time" content="2020-05-25T17:58:50.000Z">
-<meta property="article:modified_time" content="2020-05-25T19:01:41.076Z">
+<meta property="article:modified_time" content="2020-05-25T19:45:12.581Z">
 <meta property="article:author" content="Yukun Li">
 <meta property="article:tag" content="AWS">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://moranli.github.io/2020/05/25/ec2/images/EBS.png">
   
     <link rel="alternate" href="/atom.xml" title="Yukun Li`s Note" type="application/atom+xml">
   
@@ -121,7 +123,34 @@
 </li>
 <li>security group<ul>
 <li>change to security group effect to instance immediatly</li>
-<li></li>
+<li>all inbound traffic is blocked by default</li>
+<li>all outbound traffic is allowed</li>
+<li>security group have many to many relationship to ec2 instance</li>
+<li>stateful<ul>
+<li>enable inbound, outbound enable automatic</li>
+</ul>
+</li>
+<li>can not block specific IP address using security group, but with Network Access Lists</li>
+<li>only specify allow rules not deny rules, but with Network Access Lists</li>
+</ul>
+</li>
+<li>EBS<ul>
+<li><img src="images/EBS.png" alt="EBS"></li>
+<li>SSD (can used as root drive)<ul>
+<li>General Purpose SSD</li>
+<li>Provision IOPS SSD<ul>
+<li>Highest performance</li>
+<li>use for database</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>HDD<ul>
+<li>Throughput Optimized HDD</li>
+<li>COLD HDD</li>
+<li>Magnetic (can used as root drive)</li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>
@@ -131,7 +160,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://moranli.github.io/2020/05/25/ec2/" data-id="ckamvpicm000368vd0h5zdq9i" class="article-share-link">Share</a>
+      <a data-url="http://moranli.github.io/2020/05/25/ec2/" data-id="ckamwhfmv0003w8vd3wdbb31b" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/AWS/" rel="tag">AWS</a></li></ul>
