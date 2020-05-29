@@ -98,7 +98,7 @@
 </ul>
 </li>
 <li>reserved<ul>
-<li>provided a capicity reservation for term of 1 - 3 years</li>
+<li>provided contract of a capicity reservation for term of 1 - 3 years</li>
 </ul>
 </li>
 <li>spot<ul>
@@ -110,6 +110,10 @@
 <li>physical ec2 instance, allow you use existing sever-bound software licenses</li>
 </ul>
 </li>
+</ul>
+</li>
+<li>Instance Type<ul>
+<li><img src="/2020/05/25/EC2/Instance.png" class="" title="Instance types"></li>
 </ul>
 </li>
 <li>new instance<ul>
@@ -168,6 +172,27 @@
 </li>
 </ul>
 </li>
+<li>AMI Type<ul>
+<li>EBS volume<ul>
+<li>root device of an instance from AMI create by a EBS snapshot</li>
+<li>can keep even terminate</li>
+</ul>
+</li>
+<li>Instance Store Volume<ul>
+<li>same as emphemeral storage</li>
+<li>root device of an instance from AMI create by a templayte stored in S3</li>
+<li>can not stop or you will lose all data</li>
+<li>reboot whould not lose data</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Enhanced Networking<ul>
+<li><h2 id="ENI"><a href="#ENI" class="headerlink" title="ENI"></a>ENI</h2></li>
+<li>Enhanced Network</li>
+<li>Elastic Fabric Adaptor</li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>
@@ -175,7 +200,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://moranli.github.io/2020/05/25/EC2/" data-id="ckan2psz20003n8vd5r509h7y" class="article-share-link">Share</a>
+      <a data-url="http://moranli.github.io/2020/05/25/EC2/" data-id="ckasf54ap0003bcvdf8z5672y" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/AWS/" rel="tag">AWS</a></li></ul>
@@ -219,7 +244,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://moranli.github.io/2020/05/14/AWS-organization/" data-id="ckan2psym0000n8vdf71f59re" class="article-share-link">Share</a>
+      <a data-url="http://moranli.github.io/2020/05/14/AWS-organization/" data-id="ckasf54a60000bcvd9yx5hx23" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/AWS/" rel="tag">AWS</a></li></ul>
@@ -385,7 +410,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://moranli.github.io/2020/05/13/S3/" data-id="ckan2psz50004n8vdfop76hu3" class="article-share-link">Share</a>
+      <a data-url="http://moranli.github.io/2020/05/13/S3/" data-id="ckasf54al0001bcvdg7xac313" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/AWS/" rel="tag">AWS</a></li></ul>
@@ -439,9 +464,15 @@
 <li>IAM is universial, you are create a user globally</li>
 <li>consists of<ul>
 <li>user</li>
-<li>policy</li>
-<li>group</li>
-<li>roles </li>
+<li>policy<ul>
+<li>JSON format</li>
+</ul>
+</li>
+<li>group<ul>
+<li>collection of user share same policy</li>
+</ul>
+</li>
+<li>roles  </li>
 </ul>
 </li>
 <li>root account is the account first setup AWS account, it have full admin access</li>
@@ -456,7 +487,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://moranli.github.io/2020/05/13/Overview-and-IAM/" data-id="ckan2psyx0001n8vdbvqy1raq" class="article-share-link">Share</a>
+      <a data-url="http://moranli.github.io/2020/05/13/Overview-and-IAM/" data-id="ckasf54ar0004bcvd1c3j8352" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/AWS/" rel="tag">AWS</a></li></ul>
