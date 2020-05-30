@@ -17,7 +17,7 @@
 <meta property="og:image" content="http://moranli.github.io/2020/05/25/EC2/Instance.png">
 <meta property="og:image" content="http://moranli.github.io/2020/05/25/EC2/EBS.png">
 <meta property="article:published_time" content="2020-05-25T20:06:09.000Z">
-<meta property="article:modified_time" content="2020-05-29T16:26:04.535Z">
+<meta property="article:modified_time" content="2020-05-30T22:36:45.466Z">
 <meta property="article:author" content="Yukun Li">
 <meta property="article:tag" content="AWS">
 <meta name="twitter:card" content="summary">
@@ -122,7 +122,12 @@
 </li>
 <li>new instance<ul>
 <li>termiantion protection is turned off by default</li>
-<li>root drive / additional drive can be encrypted</li>
+<li>root drive / additional drive can be encrypted<ul>
+<li>os level encryption</li>
+<li>make a snapshot, encrypt it, create a new AMI use that snapshot</li>
+<li>can be done throught cli, console or API</li>
+</ul>
+</li>
 <li>root dirve is deleted when terminate by default</li>
 </ul>
 </li>
@@ -191,10 +196,100 @@
 </li>
 </ul>
 </li>
-<li>Enhanced Networking<ul>
-<li><h2 id="ENI"><a href="#ENI" class="headerlink" title="ENI"></a>ENI</h2></li>
-<li>Enhanced Network</li>
-<li>Elastic Fabric Adaptor</li>
+<li>Elastic Load balancer<ul>
+<li>Type<ul>
+<li>Application Load Balancer<ul>
+<li>best suit for HTTP / HTTPS request</li>
+<li>layer 7</li>
+</ul>
+</li>
+<li>Network Load Balancer<ul>
+<li>best suit for TCP traffic</li>
+<li>layer 4</li>
+<li>use for extreme perfirmance</li>
+<li>most costly</li>
+</ul>
+</li>
+<li>Classic Load Balancer<ul>
+<li>both feature of Application and Network Load Balancer</li>
+<li>504 error if app not working</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>add X-Forward_For header to convert IPV4 private address to IPV4 public address</li>
+</ul>
+</li>
+<li>Route53<ul>
+<li>DNS service</li>
+<li>map domain name to<ul>
+<li>EC2</li>
+<li>load balancer</li>
+<li>S3</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>RDS<ul>
+<li>OLTPs<ul>
+<li>SQL<ul>
+<li>MYSQL, POSTGRESQL, ORACLE, AURORA, MARAIA DB</li>
+</ul>
+</li>
+<li>NOSQL<ul>
+<li>DynameDB</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>OLAP<ul>
+<li>redshift</li>
+</ul>
+</li>
+<li>memory caching<ul>
+<li>memchched</li>
+<li>redis</li>
+</ul>
+</li>
+<li>Multiple AZ<ul>
+<li>only for diaester recovery</li>
+</ul>
+</li>
+<li>Read replica<ul>
+<li>inprove performance</li>
+<li>for scaling, not for DR</li>
+<li>must have auto backup turn on</li>
+<li>up to 5 read replica / db</li>
+<li>have read replica for read replica (have altency problem)</li>
+<li>can use with multiple AZ</li>
+<li>read replica -&gt; own DB, this break repication</li>
+<li>MYSQL and MARIZDB can have read replica in another region</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>CLI<ul>
+<li>you can use AWS client on your PC </li>
+</ul>
+</li>
+<li>Elastic Cache<ul>
+<li>cache data usually uesd in memory, reduce time complexity of read / write from disk</li>
+<li>use redshift fro OLAP heavy, thie is for OLTP</li>
+<li>use if<ul>
+<li>caching object</li>
+<li>keep things simple</li>
+<li>scale cache horizontally</li>
+</ul>
+</li>
+<li>use redis if<ul>
+<li>have advanced data type (list, set, hash)</li>
+<li>doing data sorting / ranking</li>
+<li>data persistance</li>
+<li>multi AZ</li>
+<li>publisher / subscripter capabilities are needed</li>
+<li></li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>
@@ -204,7 +299,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://moranli.github.io/2020/05/25/EC2/" data-id="ckasf54ap0003bcvdf8z5672y" class="article-share-link">Share</a>
+      <a data-url="http://moranli.github.io/2020/05/25/EC2/" data-id="ckauaedhw0001lkvdgirfdvxj" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/AWS/" rel="tag">AWS</a></li></ul>

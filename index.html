@@ -118,7 +118,12 @@
 </li>
 <li>new instance<ul>
 <li>termiantion protection is turned off by default</li>
-<li>root drive / additional drive can be encrypted</li>
+<li>root drive / additional drive can be encrypted<ul>
+<li>os level encryption</li>
+<li>make a snapshot, encrypt it, create a new AMI use that snapshot</li>
+<li>can be done throught cli, console or API</li>
+</ul>
+</li>
 <li>root dirve is deleted when terminate by default</li>
 </ul>
 </li>
@@ -187,10 +192,100 @@
 </li>
 </ul>
 </li>
-<li>Enhanced Networking<ul>
-<li><h2 id="ENI"><a href="#ENI" class="headerlink" title="ENI"></a>ENI</h2></li>
-<li>Enhanced Network</li>
-<li>Elastic Fabric Adaptor</li>
+<li>Elastic Load balancer<ul>
+<li>Type<ul>
+<li>Application Load Balancer<ul>
+<li>best suit for HTTP / HTTPS request</li>
+<li>layer 7</li>
+</ul>
+</li>
+<li>Network Load Balancer<ul>
+<li>best suit for TCP traffic</li>
+<li>layer 4</li>
+<li>use for extreme perfirmance</li>
+<li>most costly</li>
+</ul>
+</li>
+<li>Classic Load Balancer<ul>
+<li>both feature of Application and Network Load Balancer</li>
+<li>504 error if app not working</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>add X-Forward_For header to convert IPV4 private address to IPV4 public address</li>
+</ul>
+</li>
+<li>Route53<ul>
+<li>DNS service</li>
+<li>map domain name to<ul>
+<li>EC2</li>
+<li>load balancer</li>
+<li>S3</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>RDS<ul>
+<li>OLTPs<ul>
+<li>SQL<ul>
+<li>MYSQL, POSTGRESQL, ORACLE, AURORA, MARAIA DB</li>
+</ul>
+</li>
+<li>NOSQL<ul>
+<li>DynameDB</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>OLAP<ul>
+<li>redshift</li>
+</ul>
+</li>
+<li>memory caching<ul>
+<li>memchched</li>
+<li>redis</li>
+</ul>
+</li>
+<li>Multiple AZ<ul>
+<li>only for diaester recovery</li>
+</ul>
+</li>
+<li>Read replica<ul>
+<li>inprove performance</li>
+<li>for scaling, not for DR</li>
+<li>must have auto backup turn on</li>
+<li>up to 5 read replica / db</li>
+<li>have read replica for read replica (have altency problem)</li>
+<li>can use with multiple AZ</li>
+<li>read replica -&gt; own DB, this break repication</li>
+<li>MYSQL and MARIZDB can have read replica in another region</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>CLI<ul>
+<li>you can use AWS client on your PC </li>
+</ul>
+</li>
+<li>Elastic Cache<ul>
+<li>cache data usually uesd in memory, reduce time complexity of read / write from disk</li>
+<li>use redshift fro OLAP heavy, thie is for OLTP</li>
+<li>use if<ul>
+<li>caching object</li>
+<li>keep things simple</li>
+<li>scale cache horizontally</li>
+</ul>
+</li>
+<li>use redis if<ul>
+<li>have advanced data type (list, set, hash)</li>
+<li>doing data sorting / ranking</li>
+<li>data persistance</li>
+<li>multi AZ</li>
+<li>publisher / subscripter capabilities are needed</li>
+<li></li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>
@@ -200,7 +295,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://moranli.github.io/2020/05/25/EC2/" data-id="ckasf54ap0003bcvdf8z5672y" class="article-share-link">Share</a>
+      <a data-url="http://moranli.github.io/2020/05/25/EC2/" data-id="ckauaedhw0001lkvdgirfdvxj" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/AWS/" rel="tag">AWS</a></li></ul>
@@ -244,7 +339,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://moranli.github.io/2020/05/14/AWS-organization/" data-id="ckasf54a60000bcvd9yx5hx23" class="article-share-link">Share</a>
+      <a data-url="http://moranli.github.io/2020/05/14/AWS-organization/" data-id="ckauaedhh0000lkvd085nbdxl" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/AWS/" rel="tag">AWS</a></li></ul>
@@ -280,37 +375,43 @@
       
         <h1 id="S3"><a href="#S3" class="headerlink" title="S3"></a>S3</h1><ul>
 <li>object-oriented storage<ul>
-<li>files 0 - 5TB</li>
-<li>ulimit storage</li>
-<li>file are store in bucket</li>
-<li>bucket are private when created<ul>
-<li>S3 is a univerisal namspace, all url to s3 busket mush be unique</li>
-<li>Object in S3</li>
+<li>files 0 - 5TB<ul>
+<li>max PUT object 5GB</li>
 </ul>
 </li>
+<li>ulimit storage</li>
+<li>file are store in bucket</li>
+<li>bucket are private when created</li>
+</ul>
+</li>
+<li>S3 is a univerisal namspace, all url to s3 busket mush be unique</li>
+<li>Object in S3<ul>
 <li>key (name of file)</li>
 <li>value (content of file)</li>
 <li>version ID</li>
 <li>metadata</li>
 <li>subresources<ul>
 <li>access control lists</li>
-<li>torrents<ul>
-<li>data consistincy</li>
+<li>torrents</li>
+<li>bucket policy</li>
+<li>CORS</li>
+<li>transfer accerlation</li>
 </ul>
 </li>
 </ul>
 </li>
+<li>data consistincy<ul>
 <li>read after write</li>
 <li>eventual consistency for overide delete &amp; write</li>
-<li>can use MFA delete to product delete<ul>
-<li>S3 guarantees:</li>
+<li>can use MFA delete to product delete</li>
 </ul>
 </li>
+<li>S3 guarantees:<ul>
 <li>99.9% availability</li>
-<li>99.999999999% durability<ul>
-<li>Storage Class (expensive -&gt; cheap)</li>
+<li>99.999999999% durability</li>
 </ul>
 </li>
+<li>Storage Class (expensive -&gt; cheap)<ul>
 <li>standard</li>
 <li>Intelligent Tiering<ul>
 <li>automaticly move data between tire to minimum cost without influence performace</li>
@@ -321,6 +422,11 @@
 <li>IA without data consistency across differenct availability zone</li>
 </ul>
 </li>
+<li>RRS<ul>
+<li>not available</li>
+<li>data easily reproducible  like thumbnails</li>
+</ul>
+</li>
 <li>Glacier<ul>
 <li>can store any amount of data</li>
 <li>used on archieved data</li>
@@ -328,43 +434,88 @@
 <li>Glacier Deep Archive</li>
 <li>lowest cost</li>
 <li>about 12 hour retrival time</li>
-<li>cross-region replication</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>cross-region replication<ul>
 <li>replicate data from one region to another</li>
 <li>file in exist bucket would not replicate automatically</li>
 <li>all update after will update automatic</li>
 <li>delete / delete of indidval version would not replicate</li>
-<li>transfer acceleration</li>
+</ul>
+</li>
+<li>transfer acceleration<ul>
 <li>user transfer file to edge location and take advantage of using network between S3 data center location and edge location</li>
-<li>security</li>
-<li>set access with</li>
-<li>bucket policy</li>
-<li>access control list</li>
-<li>can log request </li>
-<li>encryption</li>
-<li>During transmission</li>
+</ul>
+</li>
+<li>security<ul>
+<li>enable user direct downloading by add pre-signed URL to website <ul>
+<li>set access with<ul>
+<li>bucket policy - bucket</li>
+<li>access control list - object</li>
+</ul>
+</li>
+<li>can log request and write to same / different bucket </li>
+</ul>
+</li>
+</ul>
+</li>
+<li>encryption<ul>
+<li>encrypt bucket with AES 256 by default <ul>
+<li>During transmission<ul>
 <li>SSL/TLS</li>
-<li>server side</li>
+</ul>
+</li>
+<li>At REST <ul>
+<li>server side<ul>
 <li>SSE-S3 sever side encryption S3</li>
 <li>SSE-KMS Key management service</li>
 <li>SSE-C sever side encryption with consumer provided keys</li>
+</ul>
+</li>
 <li>client side encryption</li>
-<li>versioning</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>prevent user upload unencrypted file by only allow request with x-amz-server-side-encryption header  </li>
+</ul>
+</li>
+<li>CORS<ul>
+<li>enbale cross region access fro you aws resources</li>
+<li>ex. file in different bucket</li>
+<li>config bucket being accessed to allow access from another bucket</li>
+<li>always use s3 website url not bucket url</li>
+</ul>
+</li>
+<li>versioning<ul>
 <li>can not be disabled once enabled</li>
-<li>store all version even delete (label with deleted)</li>
+<li>store all version even delete (label with deleted)<ul>
 <li>intergated with lifecycle rules</li>
+</ul>
+</li>
 <li><ul>
 <li>MFA deletion capacity, provide additional layer of security</li>
 </ul>
 </li>
-<li>lifecycle</li>
+</ul>
+</li>
+<li>lifecycle<ul>
 <li>automate move object to different layers</li>
 <li>can use conjunction with verisoning</li>
 <li>can apply to current / past versioning</li>
-<li>share bucket between  account</li>
+</ul>
+</li>
+<li>share bucket between  account<ul>
 <li>use bucket policy &amp; IAM(apply to entire bucket), programmatic only</li>
 <li>use bucket ACL &amp; IAM(individual objects), programmatic only</li>
 <li>cross-account IAM roles, console &amp; programmetic</li>
-<li>cloudfront</li>
+</ul>
+</li>
+<li>cloudfront<ul>
 <li>deliver your content to nearest edge location for user for best possible performance</li>
 <li>origin: origin of all the file CDN will distribute (S3, EC2, load balancer, Route 53)</li>
 <li>distribution: nmae of edge location give to CDN for distribute</li>
@@ -372,35 +523,56 @@
 <li>clear cached is charged</li>
 <li>Web distribution</li>
 <li>RTMP (media streaming)</li>
-<li>snowball</li>
-<li>PB level data transport solution using physical secure large disk</li>
-<li>import / export to S3</li>
-<li>storage gateway</li>
-<li>File gateway</li>
-<li>NFS, store directly on S3</li>
-<li>volume gateway</li>
-<li>stored volume<ul>
-<li>entire dataset store on site and asycgriniusky backup to S3</li>
 </ul>
 </li>
-<li>cached volume<ul>
+<li>snowball<ul>
+<li>PB level data transport solution using physical secure large disk</li>
+<li>import / export to S3</li>
+</ul>
+</li>
+<li>storage gateway<ul>
+<li>File gateway<ul>
+<li>NFS, store directly on S3</li>
+</ul>
+</li>
+<li>volume gateway<ul>
+<li>stored volume<ul>
+<li>entire dataset store on site and asycgriniusky backup to S3<ul>
+<li>cached volume</li>
+</ul>
+</li>
 <li>entire dataset store on S3 and most frequenctly accessed cached on site</li>
 </ul>
 </li>
-<li>gateway virtual library</li>
+</ul>
+</li>
+<li>gateway virtual library<ul>
 <li>use for backup </li>
-<li>Athene</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Athene<ul>
 <li>Interactive query service</li>
 <li>allow you to query data located in S3 using standard SQL</li>
 <li>serverless</li>
 <li>commonly used to analyse log data in S3</li>
-<li>Macie</li>
+</ul>
+</li>
+<li>Macie<ul>
 <li>security service use AI to discover, classify and protect data in S3 and help identify PII(Personal identifiable information)</li>
 <li>also use to analyze cloud trail logs for suspicious API activity</li>
 <li>include dashboard, report and alerting</li>
 <li>great for PCI-DSS compliance and preventing ID theft</li>
 </ul>
 </li>
+<li>Performance optimization<ul>
+<li>GET-intensive workloads<ul>
+<li>use cloudfront</li>
+</ul>
+</li>
+<li>Mixed-Workloads<ul>
+<li>use hashed key name for store you S3 object to avoid different object store in same partition  </li>
 </ul>
 </li>
 </ul>
@@ -410,7 +582,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://moranli.github.io/2020/05/13/S3/" data-id="ckasf54al0001bcvdg7xac313" class="article-share-link">Share</a>
+      <a data-url="http://moranli.github.io/2020/05/13/S3/" data-id="ckauaedi40003lkvd3i4h3dbs" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/AWS/" rel="tag">AWS</a></li></ul>
@@ -487,7 +659,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://moranli.github.io/2020/05/13/Overview-and-IAM/" data-id="ckasf54ar0004bcvd1c3j8352" class="article-share-link">Share</a>
+      <a data-url="http://moranli.github.io/2020/05/13/Overview-and-IAM/" data-id="ckauaedi70004lkvdbhgxaq4d" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/AWS/" rel="tag">AWS</a></li></ul>
